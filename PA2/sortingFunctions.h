@@ -1,15 +1,19 @@
 #pragma once
 #include <iostream>
 #include <string>
-
+#include <fstream>
 using namespace std;
+
+const string DATA_FILE_10K = "10Kinput.txt";
+const string DATA_FILE_100K = "100Kinput.txt";
+const string DATA_FILE_1M = "1Minput.txt";
 
 template <typename T>void bubbleSort(T list[], int size) {
 	bool swapped = true;
 	int i;
 	while (swapped == true) {
 		swapped = false;
-		for (i = 0; i < size; i++) {
+		for (i = 0; i < size-1; i++) {
 			if (list[i + 1] < list[i]) {
 				swap(list[i + 1], list[i]);
 				swapped = true;
@@ -47,18 +51,18 @@ template <typename T>void SelectionSort(T list[], int size) {
 	}
 }
 
-template <typename T> void ShellSort(T list[], int size) {
+template <typename T> void shellSort(T list[], int size) {
 	int gap = size / 2;
 	int i;
 	while (gap > 0) {
 		for (i = 0; i < size - gap; i++) {
 			if (list[i] > list[i + gap]) {
-				swap(list[i],list[i+gap])
+				swap(list[i], list[(i + gap)]);
 			}
 		}
-		gap / 2;
+		gap /= 2;
 	}
-	bubbleSort[list, size];
+	bubbleSort(list, size);
 }
 
 template <typename T> void quickSort(T list[], int lowerBound, int upperBound) {
@@ -105,7 +109,7 @@ template <typename T> void merge(T list[], int lowerBound, int mid, int upperBou
 	T* tmp1 = new T[size1];
 	T* tmp2 = new T[size2];
 
-	for (i = 0; i < size1, i++) {
+	for (i = 0; i < size1; i++) {
 		tmp1[i] = list[lowerBound + i - 1];
 	}
 	for (j = 0; j < size2; j++) {
@@ -143,3 +147,10 @@ template <typename T>void swap(T &lhs, T &rhs) {
 	lhs = rhs;
 	rhs = temp;
 }
+
+void runBubbleSort();
+void runInsertionSort();
+void runMergeSort();
+void runQuickSort();
+void runSelectionSort();
+void runShellSort();
