@@ -18,6 +18,9 @@
     <ClInclude Include="sortingFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="timerSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PA2.cpp">
@@ -29,9 +32,18 @@
     <ClCompile Include="sortingFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="timerSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="10Kinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="100Kinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="1Minput.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

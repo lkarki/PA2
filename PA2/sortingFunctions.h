@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cstdlib> 
+#include <ctime> 
 using namespace std;
 
 const string DATA_FILE_10K = "10Kinput.txt";
@@ -36,7 +38,7 @@ template <typename T>void insertionSort(T list[], int size) {
 	}
 }
 
-template <typename T>void SelectionSort(T list[], int size) {
+template <typename T>void selectionSort(T list[], int size) {
 	int i, j, minIndex;
 	for (i = 0; i < size-1; i++) {
 		minIndex = i;
