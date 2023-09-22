@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="functions.h" />
+    <ClInclude Include="sortingFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PA2.cpp" />
