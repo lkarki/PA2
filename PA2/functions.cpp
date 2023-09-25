@@ -1,9 +1,9 @@
 //Author: Lucius Karki
 //Class : CSI 281-01
-//Assignment : PA2 part 1
-//Date Assigned : Thursday, September 21, 2023
-//Due Date : 13:00 EST, Monday, September 25, 2023
-//Description : Uses bubble sort and Insertion sort in template functions to swap around
+//Assignment : PA2 part 2
+//Date Assigned : Monday, September 25, 2023
+//Due Date : 13:00 EST, Thursday, September 28, 2023
+//Description : Uses selection sort and shell sort in template functions to swap around
 // arrays of all kinds of datatype
 //Certification of Authenticity :
 //I certify that this is entirely my own work, except where I have given
