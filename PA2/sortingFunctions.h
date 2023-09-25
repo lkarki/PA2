@@ -15,6 +15,7 @@
 //-Communicate a copy of this assignment to a plagiarism checking service(which may
 //	then retain a copy of this assignment on its database for the purpose of future
 //	plagiarism checking)
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -64,87 +65,6 @@ template <typename T>void insertionSort(T list[], int size) {
 	}
 }
 
-/*     Pre:  an array of unspecified datatype, size of array
-*     Post:  None
-*  Purpose:  To sort an array with selection sort
-*********************************************************/
-template <typename T>void selectionSort(T list[], int size) {
-	int i, j, minIndex;
-	for (i = 0; i < size-1; i++) {
-		minIndex = i;
-		for (j = i + 1; j < size; j++) {
-			if (list[j] < list[minIndex]) {
-				minIndex = j;
-			}
-		}
-		if (minIndex != i) {
-			swap(list[i], list[minIndex]);
-		}
-	}
-}
-
-/*     Pre:  an array of unspecified datatype, size of array
-*     Post:  None
-*  Purpose:  To sort an array with shell sort
-*********************************************************/
-template <typename T> void shellSort(T list[], int size) {
-	int gap = size / 2;
-	int i;
-	while (gap > 0) {
-		for (i = 0; i < size - gap; i++) {
-			if (list[i] > list[i + gap]) {
-				swap(list[i], list[(i + gap)]);
-			}
-		}
-		gap /= 2;
-	}
-	bubbleSort(list, size);
-}
-
-/*     Pre:  an array of unspecified datatype, upper bound of the array, and lower bound of the array
-*     Post:  None
-*  Purpose:  To sort an array with quicksort
-*********************************************************/
-template <typename T> void quickSort(T list[], int lowerBound, int upperBound) {
-	int i = lowerBound;
-	int j = upperBound;
-
-	T pivot = list[(lowerBound + upperBound) / 2];
-
-	while (i <= j) {
-		while (list[i] < pivot) {
-			i = i + 1;
-		}
-		while (list[j] > pivot) {
-			j = j - 1;
-		}
-		if (i <= j) {
-			swap(list[i], list[j]);
-			i = i + 1;
-			j = j + 1;
-		}
-		if (lowerBound < j) {
-			quickSort(list, lowerBound, j);
-		}
-		if (i < upperBound) {
-			quickSort(list, i, upperBound);
-		}
-	}
-}
-
-/*     Pre:  an array of unspecified datatype, lowerbound of the array, upperbound of the array
-*     Post:  None
-*  Purpose:  To sort an array with merge sort
-*********************************************************/
-template <typename T> void mergeSort(T list[], int lowerBound, int upperBound) {
-	if (lowerBound < upperBound) {
-		int mid = (lowerBound + upperBound) / 2;
-		mergeSort(list, lowerBound, mid);
-		mergeSort(list, mid+1, upperBound);
-		merge(list, lowerBound, mid, upperBound);
-	}
-}
-
 /*     Pre:  an array of unspecified datatype, upperbound, lowerbound, and middle of what is passed in from mergesort
 *     Post:  None
 *  Purpose:  To do the work of the mergesort algorithm
@@ -189,6 +109,94 @@ template <typename T> void merge(T list[], int lowerBound, int mid, int upperBou
 	}
 }
 
+/*     Pre:  an array of unspecified datatype, lowerbound of the array, upperbound of the array
+*     Post:  None
+*  Purpose:  To sort an array with merge sort
+*********************************************************/
+template <typename T> void mergeSort(T list[], int lowerBound, int upperBound) {
+	if (lowerBound < upperBound) {
+		int mid = (lowerBound + upperBound) / 2;
+		mergeSort(list, lowerBound, mid);
+		mergeSort(list, mid + 1, upperBound);
+		merge(list, lowerBound, mid, upperBound);
+	}
+}
+
+/*     Pre:  an array of unspecified datatype, upper bound of the array, and lower bound of the array
+*     Post:  None
+*  Purpose:  To sort an array with quicksort
+*********************************************************/
+template <typename T> void quickSort(T list[], int lowerBound, int upperBound) {
+	int i = lowerBound;
+	int j = upperBound;
+
+	T pivot = list[(lowerBound + upperBound) / 2];
+
+	while (i <= j) {
+		while (list[i] < pivot) {
+			i = i + 1;
+		}
+		while (list[j] > pivot) {
+			j = j - 1;
+		}
+		if (i <= j) {
+			swap(list[i], list[j]);
+			i = i + 1;
+			j = j + 1;
+		}
+		if (lowerBound < j) {
+			quickSort(list, lowerBound, j);
+		}
+		if (i < upperBound) {
+			quickSort(list, i, upperBound);
+		}
+	}
+}
+
+void runBubbleSort();
+void runInsertionSort();
+void runMergeSort();
+void runQuickSort();
+void runSelectionSort();
+void runShellSort();
+
+/*     Pre:  an array of unspecified datatype, size of array
+*     Post:  None
+*  Purpose:  To sort an array with selection sort
+*********************************************************/
+template <typename T>void selectionSort(T list[], int size) {
+	int i, j, minIndex;
+	for (i = 0; i < size-1; i++) {
+		minIndex = i;
+		for (j = i + 1; j < size; j++) {
+			if (list[j] < list[minIndex]) {
+				minIndex = j;
+			}
+		}
+		if (minIndex != i) {
+			swap(list[i], list[minIndex]);
+		}
+	}
+}
+
+/*     Pre:  an array of unspecified datatype, size of array
+*     Post:  None
+*  Purpose:  To sort an array with shell sort
+*********************************************************/
+template <typename T> void shellSort(T list[], int size) {
+	int gap = size / 2;
+	int i;
+	while (gap > 0) {
+		for (i = 0; i < size - gap; i++) {
+			if (list[i] > list[i + gap]) {
+				swap(list[i], list[(i + gap)]);
+			}
+		}
+		gap /= 2;
+	}
+	bubbleSort(list, size);
+}
+
 /*     Pre:  memory location of two variables of unpecified datatype
 *     Post:  None
 *  Purpose:  To swap the two variables around
@@ -200,9 +208,4 @@ template <typename T>void swap(T &lhs, T &rhs) {
 	rhs = temp;
 }
 
-void runBubbleSort();
-void runInsertionSort();
-void runMergeSort();
-void runQuickSort();
-void runSelectionSort();
-void runShellSort();
+
