@@ -1,15 +1,37 @@
+//Author: Lucius Karki
+//Class : CSI 281-01
+//Assignment : PA2 part 1
+//Date Assigned : Thursday, September 21, 2023
+//Due Date : 13:00 EST, Monday, September 25, 2023
+//Description : Uses bubble sort and Insertion sort in template functions to swap around
+// arrays of all kinds of datatype
+//Certification of Authenticity :
+//I certify that this is entirely my own work, except where I have given
+//fully - documented references to the work of others.I understand the definition and
+//consequences of plagiarism and acknowledge that the assessor of this assignment
+//may, for the purpose of assessing this assignment :
+//	-Reproduce this assignment and provide a copy to another member of academic staff;
+//and /or
+//-Communicate a copy of this assignment to a plagiarism checking service(which may
+//	then retain a copy of this assignment on its database for the purpose of future
+//	plagiarism checking)
 #pragma once
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <cstdlib> 
 #include <ctime> 
+
 using namespace std;
 
 const string DATA_FILE_10K = "10Kinput.txt";
 const string DATA_FILE_100K = "100Kinput.txt";
 const string DATA_FILE_1M = "1Minput.txt";
 
+/*     Pre:  an array of unspecified datatype, size of array
+*     Post:  None
+*  Purpose:  To sort an array with bubble sort
+*********************************************************/
 template <typename T>void bubbleSort(T list[], int size) {
 	bool swapped = true;
 	int i;
@@ -24,13 +46,17 @@ template <typename T>void bubbleSort(T list[], int size) {
 	}
 }
 
+/*     Pre:  an array of unspecified datatype, size of array
+*     Post:  None
+*  Purpose:  To sort an array with insertion sort
+*********************************************************/
 template <typename T>void insertionSort(T list[], int size) {
 	int i, j;
 	T value;
 	for (i = 1; i < size; i++) {
 		value = list[i];
 		j = i - 1;
-		while (j >= 1 && list[j] > value) {
+		while (j >= 0 && list[j] > value) {
 			list[j + 1] = list[j];
 			j = j - 1;
 		}
@@ -38,6 +64,10 @@ template <typename T>void insertionSort(T list[], int size) {
 	}
 }
 
+/*     Pre:  an array of unspecified datatype, size of array
+*     Post:  None
+*  Purpose:  To sort an array with selection sort
+*********************************************************/
 template <typename T>void selectionSort(T list[], int size) {
 	int i, j, minIndex;
 	for (i = 0; i < size-1; i++) {
@@ -53,6 +83,10 @@ template <typename T>void selectionSort(T list[], int size) {
 	}
 }
 
+/*     Pre:  an array of unspecified datatype, size of array
+*     Post:  None
+*  Purpose:  To sort an array with shell sort
+*********************************************************/
 template <typename T> void shellSort(T list[], int size) {
 	int gap = size / 2;
 	int i;
@@ -67,6 +101,10 @@ template <typename T> void shellSort(T list[], int size) {
 	bubbleSort(list, size);
 }
 
+/*     Pre:  an array of unspecified datatype, upper bound of the array, and lower bound of the array
+*     Post:  None
+*  Purpose:  To sort an array with quicksort
+*********************************************************/
 template <typename T> void quickSort(T list[], int lowerBound, int upperBound) {
 	int i = lowerBound;
 	int j = upperBound;
@@ -94,6 +132,10 @@ template <typename T> void quickSort(T list[], int lowerBound, int upperBound) {
 	}
 }
 
+/*     Pre:  an array of unspecified datatype, lowerbound of the array, upperbound of the array
+*     Post:  None
+*  Purpose:  To sort an array with merge sort
+*********************************************************/
 template <typename T> void mergeSort(T list[], int lowerBound, int upperBound) {
 	if (lowerBound < upperBound) {
 		int mid = (lowerBound + upperBound) / 2;
@@ -103,6 +145,10 @@ template <typename T> void mergeSort(T list[], int lowerBound, int upperBound) {
 	}
 }
 
+/*     Pre:  an array of unspecified datatype, upperbound, lowerbound, and middle of what is passed in from mergesort
+*     Post:  None
+*  Purpose:  To do the work of the mergesort algorithm
+*********************************************************/
 template <typename T> void merge(T list[], int lowerBound, int mid, int upperBound) {
 	int size1 = mid - lowerBound + 1;
 	int size2 = upperBound - mid;
@@ -143,6 +189,10 @@ template <typename T> void merge(T list[], int lowerBound, int mid, int upperBou
 	}
 }
 
+/*     Pre:  memory location of two variables of unpecified datatype
+*     Post:  None
+*  Purpose:  To swap the two variables around
+*********************************************************/
 template <typename T>void swap(T &lhs, T &rhs) {
 	T temp;
 	temp = lhs;
