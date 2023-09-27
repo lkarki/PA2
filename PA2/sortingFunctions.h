@@ -30,7 +30,7 @@ const string DATA_FILE_100K = "100Kinput.txt";
 const string DATA_FILE_1M = "1Minput.txt";
 
 /*     Pre:  an array of unspecified datatype, size of array
-*     Post:  None
+*     Post:  List is sorted in ascending order
 *  Purpose:  To sort an array with bubble sort
 *********************************************************/
 template <typename T>void bubbleSort(T list[], int size) {
@@ -48,7 +48,7 @@ template <typename T>void bubbleSort(T list[], int size) {
 }
 
 /*     Pre:  an array of unspecified datatype, size of array
-*     Post:  None
+*     Post:  List is sorted in ascending order
 *  Purpose:  To sort an array with insertion sort
 *********************************************************/
 template <typename T>void insertionSort(T list[], int size) {
@@ -66,7 +66,7 @@ template <typename T>void insertionSort(T list[], int size) {
 }
 
 /*     Pre:  an array of unspecified datatype, upperbound, lowerbound, and middle of what is passed in from mergesort
-*     Post:  None
+*     Post:  List is sorted in ascending order
 *  Purpose:  To do the work of the mergesort algorithm
 *********************************************************/
 template <typename T> void merge(T list[], int lowerBound, int mid, int upperBound) {
@@ -110,7 +110,7 @@ template <typename T> void merge(T list[], int lowerBound, int mid, int upperBou
 }
 
 /*     Pre:  an array of unspecified datatype, lowerbound of the array, upperbound of the array
-*     Post:  None
+*     Post:  List is sorted in ascending order
 *  Purpose:  To sort an array with merge sort
 *********************************************************/
 template <typename T> void mergeSort(T list[], int lowerBound, int upperBound) {
@@ -123,7 +123,7 @@ template <typename T> void mergeSort(T list[], int lowerBound, int upperBound) {
 }
 
 /*     Pre:  an array of unspecified datatype, upper bound of the array, and lower bound of the array
-*     Post:  None
+*     Post:  List is sorted in ascending order
 *  Purpose:  To sort an array with quicksort
 *********************************************************/
 template <typename T> void quickSort(T list[], int lowerBound, int upperBound) {
@@ -161,7 +161,7 @@ void runSelectionSort();
 void runShellSort();
 
 /*     Pre:  an array of unspecified datatype, size of array
-*     Post:  None
+*     Post:  List is sorted in ascending order
 *  Purpose:  To sort an array with selection sort
 *********************************************************/
 template <typename T>void selectionSort(T list[], int size) {
@@ -180,7 +180,7 @@ template <typename T>void selectionSort(T list[], int size) {
 }
 
 /*     Pre:  an array of unspecified datatype, size of array
-*     Post:  None
+*     Post:  List is sorted in ascending order
 *  Purpose:  To sort an array with shell sort
 *********************************************************/
 template <typename T> void shellSort(T list[], int size) {
@@ -198,7 +198,7 @@ template <typename T> void shellSort(T list[], int size) {
 }
 
 /*     Pre:  memory location of two variables of unpecified datatype
-*     Post:  None
+*     Post:  Two swapped items
 *  Purpose:  To swap the two variables around
 *********************************************************/
 template <typename T>void swap(T &lhs, T &rhs) {

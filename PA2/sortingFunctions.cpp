@@ -18,7 +18,7 @@
 #include "sortingFunctions.h"
 #include "timerSystem.h"
 /*     Pre:  None
-*     Post:  None
+*     Post:  none
 *  Purpose:  To run bubblesort
 *********************************************************/
 void runBubbleSort()
